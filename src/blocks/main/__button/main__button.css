@@ -1,0 +1,31 @@
+.main__button {
+    background-color: transparent;
+    border: solid #3C4295 1px;
+    font-family: 'Montserrat', sans-serif;
+    color: #3C4295;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+    .main__button {
+        font-size: 25px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 1279px) {
+    .main__button {
+        font-size: 20px;
+        width: 220px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main__button {
+        font-size: 15px;
+        width: 220px;
+        padding: 8px 0;
+        align-self: center;
+    }
+}

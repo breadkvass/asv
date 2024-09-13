@@ -1,0 +1,30 @@
+.main {
+    background-image: url(../../images/main-image.jpeg);
+    background-size: cover;
+}
+
+@media (min-width: 1280px) {
+    .main {
+        background-image: url(../../images/main-image-max.jpeg);
+        height: 768px;
+    }
+}
+
+@media (max-width: 1279px) {
+    .main {
+        height: 580px;
+        background-size: cover;
+    }
+}
+
+@media (max-width: 1023px) {
+    .main {
+        height: 460px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main {
+        background-position: center;
+    }
+}
