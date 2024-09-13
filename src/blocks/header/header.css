@@ -1,0 +1,36 @@
+.header {
+    border-bottom: solid #3C4295 1px;
+}
+
+@media (min-width: 1280px) {
+    .header {
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 25px 0;
+    }
+}
+
+@media (max-width: 1279px) {
+    .header {
+        margin: 0 100px;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 1023px) {
+    .header {
+        margin: 0 75px;
+        padding: 15px 0px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header {
+        margin: 0 30px;
+        padding: 5px 0px;
+    }
+
+    .info {
+        margin: 0 5px;
+    }
+}

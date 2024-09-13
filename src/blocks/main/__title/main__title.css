@@ -1,0 +1,36 @@
+.main__title {
+    margin: 0;
+    font-weight: 400;
+    width: 800px;
+    color: #3C4295;
+}
+
+@media (min-width: 1280px) {
+    .main__title {
+        margin: 0;
+        font-size: 70px;
+        font-weight: 400;
+        width: 800px;
+    }
+}
+
+@media (max-width: 1279px) {
+    .main__title {
+        width: 700px;
+        font-size: 55px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .main__title {
+        width: 400px;
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main__title {
+        width: 250px;
+        font-size: 28px;
+    }
+}
