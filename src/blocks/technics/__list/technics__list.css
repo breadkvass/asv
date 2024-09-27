@@ -1,0 +1,28 @@
+.technics__list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    
+}
+
+@media (min-width: 1280px) {
+    .technics__list {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 1279px) {
+    .technics__list {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .technics__list {
+        flex-direction: column;
+        gap: 40px;
+    }
+}

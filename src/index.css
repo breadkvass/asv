@@ -14,3 +14,16 @@
 @import url(./blocks/main/__button/main__button.css);
 @import url(./blocks/main/__content/main__content.css);
 @import url(./blocks/main/__title/main__title.css);
+
+@import url(./blocks/technics/technics.css);
+@import url(./blocks/technics/__button/technics__button.css);
+@import url(./blocks/technics/__desc/technics__desc.css);
+@import url(./blocks/technics/__list/technics__list.css);
+@import url(./blocks/technics/__par/technics__par.css);
+@import url(./blocks/technics/__title/technics__title.css);
+
+@import url(./blocks/item/item.css);
+@import url(./blocks/item/__feat/item__feat.css);
+@import url(./blocks/item/__features/item__features.css);
+@import url(./blocks/item/__image/item__image.css);
+@import url(./blocks/item/__name/item__name.css);

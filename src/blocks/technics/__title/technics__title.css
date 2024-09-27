@@ -1,0 +1,30 @@
+.technics__title {
+    text-align: center;
+    color: #3C4295;
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (min-width: 1280px) {
+    .technics__title {
+        font-size: 60px;
+    }
+}
+
+@media (max-width: 1279px) {
+    .technics__title {
+        font-size: 45px;
+    }
+}
+
+@media (max-width: 1023px) {
+    .technics__title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {    
+    .technics__title {
+        font-size: 25px;
+    }
+}

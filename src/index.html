@@ -28,11 +28,60 @@
 				</div>
 			</div>
 		</header>
-		<div class="main__content">
-			<h1 class="main__title">Аренда телескопических погрузчиков</h1>
-			<button class="main__button">оставить заявку</button>
-		</div>
-		
+
+		<section class="main">
+			<div class="main__content">
+				<h1 class="main__title">Аренда телескопических погрузчиков</h1>
+				<button class="main__button">оставить заявку</button>
+			</div>
+		</section>
+
+		<section class="technics">
+			<h2 class="technics__title">Предоставляемая техника</h2>
+			<ul class="technics__list">
+
+				<li class="item">
+					<img class="item__image" src="<%=require('./images/Manitou-MRT-2150.png')%>" alt="Manitou MRT 2150"/>
+					<p class="item__name">Manitou MRT 2150</p>
+					<ul class="item__features">
+						<li class="item__feat">Максимальная высота&nbsp;подъема:&nbsp;20,9&nbsp;м</li>
+						<li class="item__feat">Максимальная грузоподъемность:&nbsp;4999&nbsp;кг</li>
+						<li class="item__feat">Снаряженная масса:&nbsp;17930&nbsp;кг</li>
+					</ul>
+					<!-- <p class="item__price"></p> -->
+
+				</li>
+
+				<li class="item">
+					<img class="item__image" src="<%=require('./images/JLG-4013.png')%>" alt="JLG-4013"/>
+					<p class="item__name">JLG-4013</p>
+					<ul class="item__features">
+						<li class="item__feat">Максимальная высота&nbsp;подъема:&nbsp;17.3&nbsp;м</li>
+						<li class="item__feat">Максимальная грузоподъемность:&nbsp;4000&nbsp;кг</li>
+						<li class="item__feat">Снаряженная масса:&nbsp;12310&nbsp;кг</li>
+					</ul>
+					<!-- <p class="item__price"></p> -->
+				</li>
+
+				<li class="item">
+					<img class="item__image" src="<%=require('./images/Faresin-Handlers-FH-7-30-Compact.png')%>" alt="Faresin-Handlers FH 7-30 Compact"/>
+					<p class="item__name">Faresin-Handlers FH 7-30 Compact</p>
+					<ul class="item__features">
+						<li class="item__feat">Максимальная высота&nbsp;подъема:&nbsp;7,5&nbsp;м</li>
+						<li class="item__feat">Максимальная грузоподъемность:&nbsp;3000&nbsp;кг</li>
+						<li class="item__feat">Снаряженная масса:&nbsp;7100&nbsp;кг</li>
+					</ul>
+					<!-- <p class="item__price"></p> -->
+				</li>
+
+			</ul>
+			<div class="technics__desc">
+				<p class="technics__par">ASV &mdash; аренда телескопических погрузчиков с&nbsp;2009&nbsp;года.</p>
+				<p class="technics__par">Работаем только с&nbsp;высококвалифицированными операторами&nbsp;РФ.</p>
+				<p class="technics__par">На все погрузчики есть регистрация в&nbsp;Гостехнадзор.</p>
+			</div>
+			<button class="technics__button" onClick="">оставить заявку</button>
+		</section>
 	</main>
 	<footer class="footer">
 		
