@@ -1,0 +1,13 @@
+.footer__contact_left {
+    text-align: left;
+    margin: 0;
+    text-decoration: none;
+    color: #3C4295;
+}
+
+@media (max-width: 768px) {
+    .footer__contact_left {
+        text-align: center;
+        margin: 0;
+    }
+}

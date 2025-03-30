@@ -1,0 +1,14 @@
+.modal__title {
+    font-size: 30px;
+    text-align: center;
+    border-bottom: solid 1px #3C4295;
+    margin: 0;
+    padding-bottom: 20px;
+    font-weight: 400;
+}
+
+@media (max-width: 1023px) {
+    .modal__title {
+        font-size: 20px;
+    }
+}

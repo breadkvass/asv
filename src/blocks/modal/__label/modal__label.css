@@ -1,0 +1,13 @@
+.modal__label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    line-height: 23px;
+    font-size: 20px;
+}
+
+@media (max-width: 1023px) {
+    .modal__label {
+        font-size: 15px;
+    }
+}

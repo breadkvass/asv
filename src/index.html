@@ -18,18 +18,17 @@
   </head>
 
 <body class="page">
-	<main class="main">
-		<header class="header">
-			<div class="header__info">
-				<img class="header__logo" src="<%=require('./images/logo.png')%>" alt='Логотип' />
-				<div class="header__contacts">
-					<a class="header__contact" href='mailto:7786008@mail.ru'>7786008@mail.ru</a>
-					<a  class="header__contact" href='tel:+74957786008'>8 495 778 60 08</a> 
-				</div>
-			</div>
-		</header>
-
+	<main>
 		<section class="main">
+			<nav class="header">
+				<div class="header__info">
+					<img class="header__logo" src="<%=require('./images/logo.png')%>" alt='Логотип' />
+					<div class="header__contacts">
+						<a class="header__contact" href='mailto:7786008@mail.ru'>7786008@mail.ru</a>
+						<a  class="header__contact" href='tel:+74957786008'>8 495 778 60 08</a> 
+					</div>
+				</div>
+			</nav>
 			<div class="main__content">
 				<h1 class="main__title">Аренда телескопических погрузчиков</h1>
 				<button class="main__button">оставить заявку</button>
@@ -82,8 +81,58 @@
 			</div>
 			<button class="technics__button" onClick="">оставить заявку</button>
 		</section>
+		<section class="overlay">
+			<div class="modal">
+				<img class="modal__icon-close" src="<%=require('./images/icon_close.png')%>" alt="Закрыть" />
+				<div class="modal__content">
+					<form class="modal__form" id='form' >
+						<h3 class="modal__title">Оставить заявку</h3>
+						<label class="modal__label">ФИО
+							<input class="modal__input"
+								name='name'
+								type='text'
+								required
+							/>
+						</label>
+						<label class="modal__label">E-mail
+							<input class="modal__input"
+								type='email'
+								name='email'
+								required
+							/>
+						</label>
+						<label class="modal__label">Телефон
+							<input class="modal__input"
+								type='tel'
+								name='tel'
+								required
+								placeholder='8 (999) 123-45-67'
+							/>
+						</label>
+						<label class="modal__label">Комментарий
+							<textarea class="modal__textarea"
+								name='comment'
+								placeholder='При желании укажите необходимые сроки или другую важную для вас информацию' ></textarea>
+
+						</label>
+						<button class="modal__button" type='submit'>Отправить</button>
+					</form>
+				</div>
+			</div>
+		</section>
 	</main>
 	<footer class="footer">
-		
-	</footer>
+        <h2 class="footer__title">Контакты</h2>
+        <div class="footer__info">
+            <ul class="footer__contacts">
+                <a class="footer__contact_left" href='tel:+74957786008'>8 495 778 60 08</a>
+                <a class="footer__contact_left" href='mailto:7786008@mail.ru'>7786008@mail.ru</a>
+            </ul>
+            <ul class="footer__contacts">
+                <p class="footer__contact_right">ИП Ветров А.С.</p>
+                <p class="footer__contact_right">ИНН 502910749053</p>
+            </ul>
+        </div>
+        <img class="footer__logo" src="<%=require('./images/logo.png')%>" alt='Логотип' />
+    </footer>
 </body>

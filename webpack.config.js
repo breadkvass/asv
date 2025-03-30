@@ -29,9 +29,6 @@ module.exports = {
             test: /\.css$/, use: [ 'style-loader', 'css-loader' ]
         },
         {
-            test: /\.(js)$/, use: 'babel-loader', exclude: '/node_modules/'
-        },
-        {
             test: /\.(png|jpg|gif|woff(2)?|eot|ttf|otf)$/,
             type: 'asset/resource',
         },

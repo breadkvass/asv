@@ -1,0 +1,17 @@
+.modal {
+    width: 350px;
+    position: relative;
+}
+
+@media (max-width: 1023px) {
+    .modal {
+        width: 260px;
+    }
+}
+
+/* .contact {
+    text-decoration: none;
+    color: #3C4295;
+    cursor: pointer;
+}
+ */

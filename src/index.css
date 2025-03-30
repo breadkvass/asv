@@ -27,3 +27,25 @@
 @import url(./blocks/item/__features/item__features.css);
 @import url(./blocks/item/__image/item__image.css);
 @import url(./blocks/item/__name/item__name.css);
+
+@import url(./blocks/footer/footer.css);
+@import url(./blocks/footer/__contacts/footer__contacts.css);
+@import url(./blocks/footer/__contacts/footer__contact_left.css);
+@import url(./blocks/footer/__contacts/footer__contact_right.css);
+@import url(./blocks/footer/__info/footer__info.css);
+@import url(./blocks/footer/__logo/footer__logo.css);
+@import url(./blocks/footer/__title/footer__title.css);
+
+@import url(./blocks/open/open.css);
+
+@import url(./blocks/overlay/overlay.css);
+
+@import url(./blocks/modal/modal.css);
+@import url(./blocks/modal/__button/modal__button.css);
+@import url(./blocks/modal/__content/modal__content.css);
+@import url(./blocks/modal/__form/modal__form.css);
+@import url(./blocks/modal/__icon-close/modal__icon-close.css);
+@import url(./blocks/modal/__input/modal__input.css);
+@import url(./blocks/modal/__label/modal__label.css);
+@import url(./blocks/modal/__textarea/modal__textarea.css);
+@import url(./blocks/modal/__title/modal__title.css);

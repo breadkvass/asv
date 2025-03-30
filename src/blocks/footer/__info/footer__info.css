@@ -1,0 +1,25 @@
+.footer__info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+@media (min-width: 1280px) {
+    .footer__info {
+        width: 1024px;
+    }
+}
+
+@media (max-width: 1279px) {
+    .footer__info {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer__info {
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 30px;
+    }
+}

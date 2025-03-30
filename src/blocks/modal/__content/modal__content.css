@@ -1,0 +1,12 @@
+.modal__content {
+    overflow-y: auto;
+    max-height: calc(100dvh - 200px);
+    background-color: white;
+    padding: 20px 25px;
+}
+
+@media (max-width: 1023px) {
+    .modal__content {
+        max-height: calc(100dvh - 150px);
+    }
+}

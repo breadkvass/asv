@@ -1,0 +1,16 @@
+.modal__icon-close {
+    display: block;
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    top: -35px;
+    right: -35px;
+    cursor: pointer;
+}
+
+@media (max-width: 1023px) {
+    .modal__icon-close {
+        top: -40px;
+        right: -5px;
+    }
+}
