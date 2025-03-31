@@ -19,3 +19,23 @@
 .modal__contact:hover {
     text-decoration: underline;
 }
+
+.error-message {
+    color: #ff3333;
+    font-size: 12px;
+    display: none;
+}
+
+.modal__input:invalid,
+.modal__textarea:invalid {
+    border-color: #ff9999;
+}
+
+.modal__input:valid,
+.modal__textarea:valid {
+    border-color: #ccc;
+}
+
+.result-message {
+    padding: 20px;
+}

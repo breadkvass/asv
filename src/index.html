@@ -15,13 +15,6 @@
     <link rel="icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" href="./logo192.png" />
     <title>ASV - Аренда телескопических погрузчиков</title>
-	<script>
-		window.APP_CONFIG = {
-			API_URL: window.location.hostname === 'asv-rc.ru' 
-			? 'https://asv-rc.ru' 
-			: 'http://localhost:8000'
-		};
-	</script>
   </head>
 
 <body class="page">
@@ -38,7 +31,7 @@
 			</nav>
 			<div class="main__content">
 				<h1 class="main__title">Аренда телескопических погрузчиков</h1>
-				<button class="main__button">оставить заявку</button>
+				<button class="main__button" id="open-form-button">оставить заявку</button>
 			</div>
 		</section>
 
@@ -86,37 +79,52 @@
 				<p class="technics__par">Работаем только с&nbsp;высококвалифицированными операторами&nbsp;РФ.</p>
 				<p class="technics__par">На все погрузчики есть регистрация в&nbsp;Гостехнадзор.</p>
 			</div>
-			<button class="technics__button" onClick="">оставить заявку</button>
+			<button class="technics__button" id="open-form-button-2">оставить заявку</button>
 		</section>
+		<!-- Модальное окно -->
 		<section class="overlay">
 			<div class="modal">
 				<img class="modal__icon-close" src="<%=require('./images/icon_close.png')%>" alt="Закрыть" />
 				<div class="modal__content">
-					<!-- Исходная форма -->
 					<form class="modal__form" id="form">
 						<h3 class="modal__title">Оставить заявку</h3>
+						
 						<label class="modal__label">ФИО
-							<input class="modal__input" name="name" type="text" required />
+							<input class="modal__input" name="name" type="text" required 
+								pattern="^[А-Яа-яЁёA-Za-z\s\-]+$"
+								minlength="2" maxlength="50" />
+							<span class="error-message" id="name-error"></span>
 						</label>
+						
 						<label class="modal__label">E-mail
-							<input class="modal__input" type="email" name="email" required />
+							<input class="modal__input" type="email" name="email" required 
+								pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" />
+							<span class="error-message" id="email-error"></span>
 						</label>
+						
 						<label class="modal__label">Телефон
-							<input class="modal__input" type="tel" name="tel" required placeholder="8 (999) 123-45-67" />
+							<input class="modal__input" type="tel" name="tel" required 
+								pattern="^8\s?\(\d{3}\)\s?\d{3}-\d{2}-\d{2}$"
+								placeholder="8 (999) 123-45-67" />
+							<span class="error-message" id="tel-error"></span>
 						</label>
+						
 						<label class="modal__label">Комментарий
-							<textarea class="modal__textarea" name="comment" placeholder="При желании укажите необходимые сроки или другую важную для вас информацию"></textarea>
+							<textarea class="modal__textarea" name="comment" 
+									maxlength="500"
+									placeholder="При желании укажите необходимые сроки или другую важную для вас информацию"></textarea>
+							<span class="error-message" id="comment-error"></span>
 						</label>
+						
 						<button class="modal__button" type="submit">Отправить</button>
 					</form>
-		
-					<!-- Сообщение об успехе (изначально скрыто) -->
+
+					<!-- Сообщения об успехе/ошибке -->
 					<div id="success-message" class="result-message" style="display: none;">
 						<h3 class="modal__title">Заявка отправлена</h3>
 						<p class="modal__label">Благодарим за доверие! В ближайшее время мы с вами свяжемся.</p>
 					</div>
-		
-					<!-- Сообщение об ошибке (изначально скрыто) -->
+					
 					<div id="error-message" class="result-message" style="display: none;">
 						<h3 class="modal__title">Произошла ошибка</h3>
 						<p class="modal__label">Пожалуйста, повторите заявку позже или позвоните нам:
