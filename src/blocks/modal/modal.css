@@ -3,17 +3,12 @@
     position: relative;
 }
 
-@media (max-width: 1023px) {
-    .modal {
-        width: 260px;
-    }
-}
-
 .modal__contact {
     color: #0066cc;
     text-decoration: none;
     font-weight: bold;
     white-space: nowrap;
+    margin-top: 8px;
 }
 
 .modal__contact:hover {
@@ -39,5 +34,16 @@
 }
 
 .result-message {
-    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 1023px) {
+    .modal {
+        width: 260px;
+    }
+    
+    .error-message {
+        font-size: 10px;
+        line-height: 12px;
+    }
 }

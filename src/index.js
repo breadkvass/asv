@@ -18,9 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const successMessage = document.getElementById('success-message');
   const errorMessage = document.getElementById('error-message');
   const phoneInput = document.querySelector('input[name="tel"]');
+  const body = document.body;
   
   // Состояние кнопки
   submitBtn.disabled = true;
+  let isMouseDownOnOverlay = false;
 
   // Форматирование телефона
   function formatPhoneNumber(input) {
@@ -87,6 +89,20 @@ document.addEventListener('DOMContentLoaded', function() {
     submitBtn.disabled = !form.checkValidity();
   }
 
+  // Блокировка прокрутки
+  function lockScroll() {
+    body.style.overflow = 'hidden';
+    body.style.position = 'fixed';
+    body.style.width = '100%';
+  }
+
+  // Разблокировка прокрутки
+  function unlockScroll() {
+    body.style.overflow = '';
+    body.style.position = '';
+    body.style.width = '';
+  }
+
   // Открытие формы
   function openForm() {
     overlay.style.display = 'flex';
@@ -101,11 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     inputs[0].focus();
     checkFormValidity();
+    lockScroll();
   }
 
   // Закрытие формы
   function closeForm() {
     overlay.style.display = 'none';
+    unlockScroll();
   }
 
   // Отправка формы
@@ -162,9 +180,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     closeBtn.addEventListener('click', closeForm);
-    overlay.addEventListener('click', (e) => {
-      if (e.target === overlay) closeForm();
+    
+    // Улучшенное закрытие по клику на оверлей
+    overlay.addEventListener('mousedown', (e) => {
+      if (e.target === overlay) {
+        isMouseDownOnOverlay = true;
+      }
     });
+    
+    overlay.addEventListener('mouseup', (e) => {
+      if (e.target === overlay && isMouseDownOnOverlay) {
+        closeForm();
+      }
+      isMouseDownOnOverlay = false;
+    });
+    
+    // Отмена закрытия при перемещении курсора
+    overlay.addEventListener('mousemove', () => {
+      isMouseDownOnOverlay = false;
+    });
+    
     modal.addEventListener('click', (e) => e.stopPropagation());
     
     inputs.forEach(input => {

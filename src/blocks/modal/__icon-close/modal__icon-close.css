@@ -8,7 +8,7 @@
     cursor: pointer;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 600px) {
     .modal__icon-close {
         top: -40px;
         right: -5px;
