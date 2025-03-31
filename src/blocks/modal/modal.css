@@ -9,9 +9,13 @@
     }
 }
 
-/* .contact {
+.modal__contact {
+    color: #0066cc;
     text-decoration: none;
-    color: #3C4295;
-    cursor: pointer;
+    font-weight: bold;
+    white-space: nowrap;
 }
- */
+
+.modal__contact:hover {
+    text-decoration: underline;
+}

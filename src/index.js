@@ -1,82 +1,82 @@
 import './index.css';
 
 window.addEventListener('DOMContentLoaded', () => {
-    // Элементы DOM (с правильными классами из HTML)
+    // Элементы DOM
     const requestButtons = document.querySelectorAll('.main__button, .technics__button');
     const closeModalButton = document.querySelector('.modal__icon-close');
     const modalOverlay = document.querySelector('.overlay');
-    const modal = document.querySelector('.modal');
-    const form = document.getElementById('form');
-    
-    // Функции для управления модальным окном
+ 
+    // Функции модального окна
     const closeModal = () => {
         modalOverlay.style.display = 'none';
-        document.body.style.overflow = ''; // Возвращаем прокрутку страницы
+        document.body.style.overflow = '';
     };
 
     const openModal = () => {
         modalOverlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // Блокируем прокрутку страницы
+        document.body.style.overflow = 'hidden';
     };
 
-    // Обработчики событий для модального окна
-    const setupModalListeners = () => {
-        // Открытие по кнопкам
-        requestButtons.forEach(button => {
-            button.addEventListener('click', openModal);
-        });
-
-        // Закрытие по крестику
-        closeModalButton.addEventListener('click', closeModal);
-
-        // Закрытие по клику вне модалки
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeModal();
-            }
-        });
-
-        // Закрытие по ESC
-        document.addEventListener('keydown', (e) => {
-            if (e.key === "Escape" && modalOverlay.style.display === 'flex') {
-                closeModal();
-            }
-        });
-    };
-
-    // Обработка формы
-    const handleFormSubmit = (e) => {
+    // Отправка данных в Telegram
+    document.getElementById('form').addEventListener('submit', async function(e) {
         e.preventDefault();
+        
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        const successMessage = document.getElementById('success-message');
+        const errorMessage = document.getElementById('error-message');
+    
+        form.style.display = 'block';
+        successMessage.style.display = 'none';
+        errorMessage.style.display = 'none';
 
-        fetch('https://asv-rc.ru/asv-requests.php', {
-            method: 'POST',
-            body: new FormData(form)
-        })
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok');
-            alert('Форма успешно отправлена');
-            form.reset(); // Очищаем форму после успешной отправки
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Ошибка: форма не отправлена');
-        })
-        .finally(() => {
-            closeModal();
-        });
-    };
+        try {
+            // Показываем загрузку
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправка...';
+    
+            // Собираем данные
+            const formData = {
+                name: form.name.value.trim(),
+                email: form.email.value.trim(),
+                tel: form.tel.value.trim(),
+                comment: form.comment?.value.trim() || ''
+            };
+    
+            // Отправка на сервер
+            const response = await fetch(`${window.APP_CONFIG.API_URL}/requests.php`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+    
+            const result = await response.json();
+    
+            if (!response.ok) {
+                throw new Error(result.error || 'Ошибка сервера');
+            }
+    
+            // Успех
+            form.style.display = 'none';
+            successMessage.style.display = 'block';
+            form.reset();
+        } catch (error) {
+            console.error('Ошибка:', error);
+            form.style.display = 'none';
+            errorMessage.style.display = 'block';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
+    });
 
     // Инициализация
-    const init = () => {
-        setupModalListeners();
-        
-        if (form) {
-            form.addEventListener('submit', handleFormSubmit);
-        }
-
-        // Скрываем модальное окно при загрузке
-        modalOverlay.style.display = 'none';
-    };
-
-    init();
+    requestButtons.forEach(btn => btn.addEventListener('click', openModal));
+    closeModalButton.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', (e) => e.target === modalOverlay && closeModal());
+    document.addEventListener('keydown', (e) => e.key === 'Escape' && closeModal());
+    modalOverlay.style.display = 'none';
 });

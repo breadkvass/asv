@@ -15,6 +15,13 @@
     <link rel="icon" href="./favicon.ico" />
     <link rel="apple-touch-icon" href="./logo192.png" />
     <title>ASV - Аренда телескопических погрузчиков</title>
+	<script>
+		window.APP_CONFIG = {
+			API_URL: window.location.hostname === 'asv-rc.ru' 
+			? 'https://asv-rc.ru' 
+			: 'http://localhost:8000'
+		};
+	</script>
   </head>
 
 <body class="page">
@@ -85,38 +92,37 @@
 			<div class="modal">
 				<img class="modal__icon-close" src="<%=require('./images/icon_close.png')%>" alt="Закрыть" />
 				<div class="modal__content">
-					<form class="modal__form" id='form' >
+					<!-- Исходная форма -->
+					<form class="modal__form" id="form">
 						<h3 class="modal__title">Оставить заявку</h3>
 						<label class="modal__label">ФИО
-							<input class="modal__input"
-								name='name'
-								type='text'
-								required
-							/>
+							<input class="modal__input" name="name" type="text" required />
 						</label>
 						<label class="modal__label">E-mail
-							<input class="modal__input"
-								type='email'
-								name='email'
-								required
-							/>
+							<input class="modal__input" type="email" name="email" required />
 						</label>
 						<label class="modal__label">Телефон
-							<input class="modal__input"
-								type='tel'
-								name='tel'
-								required
-								placeholder='8 (999) 123-45-67'
-							/>
+							<input class="modal__input" type="tel" name="tel" required placeholder="8 (999) 123-45-67" />
 						</label>
 						<label class="modal__label">Комментарий
-							<textarea class="modal__textarea"
-								name='comment'
-								placeholder='При желании укажите необходимые сроки или другую важную для вас информацию' ></textarea>
-
+							<textarea class="modal__textarea" name="comment" placeholder="При желании укажите необходимые сроки или другую важную для вас информацию"></textarea>
 						</label>
-						<button class="modal__button" type='submit'>Отправить</button>
+						<button class="modal__button" type="submit">Отправить</button>
 					</form>
+		
+					<!-- Сообщение об успехе (изначально скрыто) -->
+					<div id="success-message" class="result-message" style="display: none;">
+						<h3 class="modal__title">Заявка отправлена</h3>
+						<p class="modal__label">Благодарим за доверие! В ближайшее время мы с вами свяжемся.</p>
+					</div>
+		
+					<!-- Сообщение об ошибке (изначально скрыто) -->
+					<div id="error-message" class="result-message" style="display: none;">
+						<h3 class="modal__title">Произошла ошибка</h3>
+						<p class="modal__label">Пожалуйста, повторите заявку позже или позвоните нам:
+							<a class="modal__contact" href="tel:+74957786008">8 495 778 60 08</a>
+						</p>
+					</div>
 				</div>
 			</div>
 		</section>
