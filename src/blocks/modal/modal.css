@@ -23,6 +23,8 @@
 .error-message {
     color: #ff3333;
     font-size: 12px;
+    line-height: 14px;
+    margin-top: 2px;
     display: none;
 }
 

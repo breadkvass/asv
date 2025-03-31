@@ -4,6 +4,8 @@
     height: 30px;
     padding-left: 10px;
     font-size: 11px;
+    font-family: 'Montserrat';
+    margin-top: 2px;
 }
 
 .modal__input:focus {

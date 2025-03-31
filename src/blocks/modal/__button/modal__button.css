@@ -8,8 +8,7 @@
     cursor: pointer;
 }
 
-.modal__button:disabled,
-button[disabled]{
+.modal__button:disabled {
   border: 1px solid #666666;
   background-color: #dedcdc;
   color: #666666;

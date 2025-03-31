@@ -1,7 +1,7 @@
 .modal__textarea {
-    padding-left: 10px;
+    padding: 10px 0 0 10px;
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
+    margin: 2px 0 0 0;
     background-color: #F0F0F0;
     height: 50px;
     border: 0;
